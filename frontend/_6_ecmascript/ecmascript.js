@@ -103,4 +103,7 @@ console.log(x + y)
 // console.log(x+y)
 const serverInformation = ["localhost", "3000", "8080"];
 const [deneme1, deneme2, deneme3] = serverInformation;
+
 console.log(deneme1)
+//dongu
+//kelime.charAt(i)
