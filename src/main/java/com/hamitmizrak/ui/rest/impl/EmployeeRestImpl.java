@@ -5,43 +5,74 @@ import com.hamitmizrak.business.services.IEmployeeServices;
 import com.hamitmizrak.ui.rest.IEmployeeRest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/v1")
+
+//dünyaya açılacak kapımız (React;) bu kısımda ilişkilendireceğiz.
 public class EmployeeRestImpl implements IEmployeeRest {
 
     @Autowired
     IEmployeeServices services;
 
-    @Override
-    public EmployeeDto createEmployee(EmployeeDto employeeDto) {
-        return null;
+    @GetMapping("/index")
+    public String getRoot() {
+        return "index";
     }
 
+    //SAVE
+    // http://localhost:8080/api/v1/employees
     @Override
+    @PostMapping("/employees")
+    public EmployeeDto createEmployee(@RequestBody EmployeeDto employeeDto) {
+        services.createEmployee(employeeDto);
+        return employeeDto;
+    }
+
+    //LIST
+    // http://localhost:8080/api/v1/employees
+    @Override
+    @GetMapping("/employees")
     public List<EmployeeDto> getAllEmployees() {
-        return null;
+        List<EmployeeDto> listem = services.getAllEmployee();
+        return listem;
     }
 
+
+    //FIND
+    // http://localhost:8080/api/v1/employees
     @Override
-    public ResponseEntity<EmployeeDto> getEmployeeById(Long id) {
-        return null;
+    @GetMapping("/employees/{id}")
+    public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable(name = "id") Long id) {
+        ResponseEntity<EmployeeDto> response=  services.getEmployeeById(id);
+        return response;
     }
 
+
+    //UPDATE
+    // http://localhost:8080/api/v1/employees
     @Override
-    public ResponseEntity<EmployeeDto> updateEmployee(Long id, EmployeeDto employeeDto) {
-        return null;
+    @PutMapping("/employees/{id}")
+    public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable(name = "id") Long id, @RequestBody  EmployeeDto employeeDto) {
+        ResponseEntity<EmployeeDto> response=services.updateEmployee(id,employeeDto);
+        return response.ok(employeeDto);
     }
 
+
+    //DELETE
+    // http://localhost:8080/api/v1/employees
     @Override
-    public ResponseEntity<Map<String, Boolean>> deleteEmployee(Long id) {
-        return null;
+    @DeleteMapping("/employees/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable(name = "id") Long id) {
+        services.deleteEmployee(id);
+        Map<String,Boolean> response= new HashMap<>();
+        response.put("silindi",Boolean.TRUE);
+        return ResponseEntity.ok(response);
     }
 }
