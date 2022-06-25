@@ -1,0 +1,241 @@
+/* yorumlama: notlar*/
+/* Ctrl+K+C */
+
+/* id */
+#h4_id {
+    font-size: 55px;
+}
+
+/* class */
+.h4_class {
+    color: red !important;
+}
+
+.div_class {
+    width: 25%;
+    height: 250px;
+    background: green;
+    /* color:yellow; */
+    /* color:#123; */
+    /* 0123456789abcdef */
+    /* color:rgb(0, 0, 0); */
+    color: rgba(0, 0, 0, .4);
+    /* color:yellow; */
+
+    /*margin:42px; dış boşluk */
+    /* margin:2px 4px 6px 2px; */
+    /* margin:12px 5px; */
+    margin-top: 2px;
+    padding: 12px;
+    border: 4px solid blue;
+    /* border-radius: 50%; */
+    /* border-top-left-radius: 15%; */
+    /* display:inline-block; */
+    /* display:none; */
+    /* visibility: hidden; */
+
+}
+
+.paragraf {
+    font-size: 12px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    text-align: justify;
+    text-indent: 15px;
+    text-decoration: underline;
+    text-transform: capitalize;
+    word-spacing: 5px;
+    letter-spacing: 0.01px;
+    line-height: 12px;
+    column-count: 3;
+    column-rule: 4px solid red;
+}
+
+
+
+.clear_and_fix::before {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+ul{
+    list-style-type: none;
+}
+
+ul li:first-child{
+    color:Red;
+}
+
+/* img {
+    width: 900px;
+    height: 150px;
+    float: right;
+    padding:15px;
+    border:10px solid blue;
+
+    /* 10+10+15+15+900=950px : border-box: */
+}
+
+*/
+/* 
+box-sizing:border-box; ==> padding+
+*/
+
+/* Group selector */
+*{
+    margin:0;
+    padding:0px;
+    box-sizing:border-box ;
+}
+
+/* Group selector */
+/* tüm p ve tüm p*/
+/* div,p{
+    background-color: blue;
+} */
+
+/* parenti: div olacak ve ve div içindeki tüm p'ler*/
+/* div>p{
+    background-color: blue;
+} */
+
+/* div ile p aynı hizada olacak ve tüm p'ler */
+/* div~p{
+    background-color: blue;
+} */
+
+/*anchor: a */
+/* a{
+  border:2px solid green;
+  margin-left: 5px;
+}
+*/
+/* 
+pseudo class */
+/* ilk hali */
+/* .yonlendirme:link{
+    color:yellow;
+    background-color: green;
+}
+
+*/
+
+/* .yonlendirme:active{
+    color:rgb(9, 0, 71);
+    background-color: cadetblue;
+}
+
+*/
+/* üzeriene geldiğimde*/
+/* .yonlendirme:hover{
+    color:black;
+    background-color: rgb(70, 122, 70);
+}
+
+*/
+/* Tıklandığında sonrası*/
+/* .yonlendirme:visited{
+    color:pink;
+    background-color: orange;
+}
+
+*/
+/* box-shadow*/
+#box{
+    width: 45%;
+    height: 150px;
+    background: red;
+    margin-left:5%;
+    margin-top:3%;
+    box-shadow: 1px 1px 4px 2px;
+    padding:1%;
+    /* position: static; default */
+    /* position: sticky;
+            top:12px; */
+}
+
+#box:hover{
+    background: blue;
+    box-shadow: 10px 1px 8px 2px;
+    /* 1px:x yönünde
+    2px: y yönünde
+    8px: blur büyüklüğü
+    2px blur  */
+    transition: 3s all;
+    transform: rotate(-360deg);
+    /* transform: translate(50%,50%) */
+    cursor: pointer;
+
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+header{
+    background-image: url('stairs-gdf7654e4e_1920.jpg');
+    /* background-image: linear-gradient(black,red); */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+    background-size: cover;
+    background-position: center;
+    height: 75vh;
+}
+/* #picture_id{
+    position: relative;
+    top:0;
+    left:0 ;
+} */
+
+#backtotop {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background-color: chartreuse;
+    color: black;
+    padding: 2px;
+    margin-right: 8px;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+}
+
+#backtotop:hover {
+    background-color: black;
+    color: chartreuse;
+}
+
+#responsive {
+    display: inline;
+}
+
+/* 600px
+900px
+x>1200px */
+
+/* 0<=X<=600 */
+@media screen and (min-width:1px) {
+    #responsive img {
+        width: 100%;
+    }
+}
+
+
+@media screen and (min-width:600px) {
+    #responsive img {
+        width: 49%;
+    }
+}
+
+@media screen and (min-width:900px) {
+    #responsive img {
+        width: 32%;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    #responsive img {
+        width: 24%;
+    }
+}

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<br lang="en">
+
+<head>  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html tag</title>
+
+    <link rel="icon" href="facicon.ico" type="image/x-icon">
+</head>
+
+<br>
+<!-- heading -->
+<h1>h1</h1>
+<h2>h2</h2>
+<h3>h3</h3>
+<h4>h4</h4>
+<h5>h5</h5>
+<h6>h6</h6>
+<hr>
+
+<p>Lorem ipsum dolor sit amet consectetur.</p>
+<hr>
+<span>aynı satırda olan kodlara devam ettirir.</span>
+<hr>
+<!-- html formatter -->
+<b>bold</b> </br>
+<i>italic</i> </br>
+<big>big</big><br>
+<small>small</small></br>
+<code> system.out Lorem ipsum dolor sit.</code><br>
+H<sub>2</sub>O<br>
+10 <sup>5</sup>  <br>
+<mark>Fosforlu kalem</mark><br>
+<del>100TL</del>   99.99TL</br>
+<em>vurgulu</em>
+<hr>
+<!-- düzensiz liste -->
+<ul>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+    <li>item 4</li>
+</ul>
+<hr>
+<!-- düzenli listelerdir -->
+<ol start="1" type="I">
+    <li>item </li>
+    <li>item </li>
+    <li>item</li>
+    <li>item </li>
+</ol>
+<hr>
+<dl>
+    <dt>Coffee</dt>
+    <dd>- black hot drink</dd>
+    <dt>Milk</dt>
+    <dd>- white cold drink</dd>
+</dl>
+<hr>
+<img 
+src="stairs-gdf7654e4e_1920.jpg" 
+width="325"
+height="200"
+alt="merdiven" />
+<hr>
+<a href="https://www.ecodation.com" target="_blank">Click Me !</a>
+<hr>
+<table border="1" width="100%">
+    <colgroup>
+        <col span="1" style="background-color: #D6EEEE">
+      </colgroup>
+    <thead>
+        <tr>
+            <th>Frontend</th>
+            <th>Backend</th>
+            <th>database</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Html5</td>
+            <td>JavaSE</td>
+            <td>Mysql</td>
+        </tr>
+        <tr>
+            <td>css</td>
+            <td>JavaEE</td>
+            <td>Postgresql</td>
+        </tr>
+        <tr>
+            <td>js</td>
+            <td>JavaME</td>
+            <td><a href="/deneme/show">Mssql</a>  </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="3">&copy; &reg;</th>
+        </tr>
+    </tfoot>
+</table>
+<hr>
+<video width="320" height="240" controls>
+    <source src="movie.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+  </video>
+  <hr>
+  <audio controls>
+    <source src="horse.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+  <hr>
+  <iframe src="https://www.ecodation.com" frameborder="0"></iframe>
+  <!-- site içinde site -->
+  <iframe src="template.htm" frameborder="0"></iframe>
+<hr>
+</hr>
+<p>I will display &#65; &#66; &#67;</p>
+<p>&#128512;</p>
+<p>&#128151</p>
+<p>&#128151</p>
+<hr>
+<p>html non-case-sensitive</p>
+<H1>Deneme</H1>
+<br>
+<hr>
+<h1>FORM</h1>
+<form action="index.html" method="get" target="_blank" autocomplete="on">
+    <div>
+        <label for="adi">Adınız</label><br>
+        <input type="text" placeholder="Adınızı yazınız..."
+        required name="adi" id="adi" >
+    </div>
+    <br>
+
+    <div>
+        <label for="email_address">Email</label><br>
+        <input type="email" name="email_address" id="email_address"
+        required placeholder="email adresinizi giriniz" autofocus
+        >
+    </div>
+    <br>
+
+    <div>
+        <label for="sifre">Şifreniz</label><br>
+        <input type="password" placeholder="şifreniz" required name="sifre" id="sifre">
+    </div>
+    <br>
+    
+    <div>
+        <h3>Sadece 1 tane seçilir</h3>
+        <input type="radio" id="bayan_id"  name="gender" value="bayan" checked >
+        <label for="bayan_id">Bayan</label><br>
+
+        <input type="radio" id="erkek_id"  name="gender" value="erkek" >
+        <label for="erkek_id">Erkek</label><br>
+    </div>
+<hr>
+    <div>
+        <h3>Birden fazla seçebilirsiniz</h3>
+        <input type="checkbox" name="html" id="html" value="Html" checked>
+        <label for="html">Html5</label><br>
+
+        <input type="checkbox" name="css" id="css" value="css">
+        <label for="css">Css3</label><br>
+
+        <input type="checkbox" name="js" id="js" value="js">
+        <label for="js">JS</label><br>
+    </div>
+<br>
+<div>
+    <select name="il" id="il" multiple>
+        <option value="ankara">Ankara</option>
+        <option value="istanbul">İstanbul</option>
+        <option value="maras" selected>Maraş</option>
+    </select>
+</div>
+<br>
+<textarea name="form" id="form" cols="50" rows="3"></textarea>
+<br>
+<h5>Data List</h5>
+<input list="browsers" name="browser">
+<datalist id="browsers">
+  <option value="Internet Explorer">
+  <option value="Firefox">
+  <option value="Chrome">
+  <option value="Opera">
+  <option value="Safari">
+</datalist>
+
+
+<br><br><br>
+
+
+<input type="color" disabled><br>
+<input type="date"><br>
+<input type="file"><br>
+<input type="hidden"><br>
+<br>
+
+    <br><br>
+    <button type="reset">Temizle</button>
+    <button type="submit">Gönder</button>
+</form>
+
+<br><br><br><br> <br><br><br><br>
+<br><br><br><br> <br><br><br><br>
+</body>
+</html>
