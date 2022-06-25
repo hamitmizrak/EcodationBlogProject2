@@ -46,7 +46,7 @@ public class EmployeeRestImpl implements IEmployeeRest {
 
 
     //FIND
-    // http://localhost:8080/api/v1/employees
+    // http://localhost:8080/api/v1/employees/2
     @Override
     @GetMapping("/employees/{id}")
     public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable(name = "id") Long id) {
@@ -56,7 +56,7 @@ public class EmployeeRestImpl implements IEmployeeRest {
 
 
     //UPDATE
-    // http://localhost:8080/api/v1/employees
+    // http://localhost:8080/api/v1/employees/2
     @Override
     @PutMapping("/employees/{id}")
     public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable(name = "id") Long id, @RequestBody  EmployeeDto employeeDto) {
@@ -66,7 +66,7 @@ public class EmployeeRestImpl implements IEmployeeRest {
 
 
     //DELETE
-    // http://localhost:8080/api/v1/employees
+    // http://localhost:8080/api/v1/employees/2
     @Override
     @DeleteMapping("/employees/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable(name = "id") Long id) {
