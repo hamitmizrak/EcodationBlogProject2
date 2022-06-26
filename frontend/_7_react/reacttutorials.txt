@@ -1,0 +1,72 @@
+ES6=> react6
+index.js index.html olmazsa react çalışmayacak
+SPA (Single page application) ==> olarak çalışırı yani 1 tane html sayfası vardır.
+projeyi müşteriye teslim ederken node_modules silip teslim ediyorum sonra projeyi kurduktan sonra npm install yapıyoruz.
+npm install yuklencekPaketAdi --save ==> --save= projenin bir parçadır bu paket mutlaka kurulması gerekir.
+
+
+react class==> className
+react style==> style ==> {{}} 
+
+
+##################################################################################################################################
+https://tr.reactjs.org/
+https://www.npmjs.com/package/react
+https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/related
+http://localhost:3000/
+
+Setting ==> settings.json ==> 
+  // emmet active 
+  ,"emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+
+
+##################################################################################################################################
+Kurulacak programlar
+1-) 
+node js kurmak (npm otomatik kurulur)
+node -v 
+
+2-) 
+npm -v
+npm update
+
+3-)
+npx create-react-app blog
+cd blog 
+npm start
+
+##################################################################################################################################
+js framework - libraries 
+
+Open source 
+Netflix - Udemy - twitter - Uber -Marvel -Discord - Yandex - Paypal
+2011 yılında Facebook tarafında geliştirildi
+MVC = View katmanı denk gelir (React)
+Yeniden kullanabilinir
+JSX (JavaScript eXtension)= Html+JavaScript
+Babel = Javascript derleyicisi
+React = Babel (ES5 çeviren) +webpack+EsLink
+JS=interpreter(Yorumlayıcı)
+nodejs => server side 
+EsLint = synta hatalarımızı gösterir.
+
+##################################################################################################################################
+props       = componentten başka bir componente veri taşımak istiyorsak props kullan
+propsType   = props türünü belirlemek için kullanıyoruz.
+key         = döngülerde unique sağlamak react tekrardan compiler yaparken eskilerini compiler yapmamak için key'e bakar
+constructor = class çağırdığımızda ilk burası çalışır , default değerlerimizde verileri oluşturmak, bind işlemi, props verileri almak, 
+super       = üst sınıfınızın verileri kullanmak
+state       = veriler üzerindenki son durumu öğrenmek
+setState    = durumumuzu güncellemek için kullacağız.
+
+##################################################################################################################################
+Aynı seviyede
+node_modules 
+public 
+src 
+.gitignore
+package.json
+package-lock.json
+README.md
