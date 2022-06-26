@@ -86,3 +86,9 @@ VEYA
 <>
 </>
 ##################################################################################################################################
+React life-cycle 
+constructor 
+Render 
+cdm=componentDidMount
+cdu=componentDidUpdate
+cwum=componentWillUnMount
