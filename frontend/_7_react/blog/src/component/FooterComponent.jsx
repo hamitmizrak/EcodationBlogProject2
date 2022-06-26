@@ -3,9 +3,9 @@ import React from 'react'
 export default function FooterComponent() {
     return (
         <>
-            <footer className="text-center text-white" style={{
-                backgroundColor: 'black',
-               
+            <footer className="text-center text-white" 
+            style={{
+                'backgroundColor': 'black',
                 }}>
                 <div className="container pt-4">
                     <section className="mb-4">
@@ -58,13 +58,9 @@ export default function FooterComponent() {
                     </section>
                 </div>
 
-                <div className="text-center p-3" style={{
-                    backgroundColor: 'rgba(0, 0, 0, 0.2)',
-                    color:"white"
-                    
-                    }}>
-                    © 2020 Copyright:
-                    <a className="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+                <div className="text-center p-3">
+                    © 2022 Copyright:
+                    <a className="text-dark" href="https:///">Hamit Mızrak</a>
                 </div>
             </footer>
         </>
