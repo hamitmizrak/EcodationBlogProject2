@@ -61,6 +61,9 @@ super       = üst sınıfınızın verileri kullanmak
 state       = veriler üzerindenki son durumu öğrenmek
 setState    = durumumuzu güncellemek için kullacağız.
 
+function componentte ==> render yoktur
+class componentte    ==> render vardır
+
 ##################################################################################################################################
 Aynı seviyede
 node_modules 
