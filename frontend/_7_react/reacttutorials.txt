@@ -92,3 +92,7 @@ Render
 cdm=componentDidMount
 cdu=componentDidUpdate
 cwum=componentWillUnMount
+
+
+npm i axios --save   ==>(package.json)
+npm i bootstrap --save   ==>(package.json)
