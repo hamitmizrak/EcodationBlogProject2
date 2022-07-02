@@ -51,39 +51,7 @@ deleteEmployee(){
 }
 
 }
-
-
-
-
-
-//Backend Java EmployeeRestImpl
-//################################################
-//SAVE (@PostMapping)
-// http://localhost:8080/api/v1/employees
-// @PostMapping("/employees")
-// public EmployeeDto createEmployee(@RequestBody EmployeeDto employeeDto) {}
-
-//LIST (@GetMapping)
-//http://localhost:8080/api/v1/employees
-//@GetMapping("/employees")
-//public List<EmployeeDto> getAllEmployees() {}
-
-//FIND (@GetMapping)
-// http://localhost:8080/api/v1/employees/2
-// @GetMapping("/employees/{id}")
-// public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable(name = "id") Long id) {}
-
-//UPDATE (@PutMapping)
-//http://localhost:8080/api/v1/employees/2
-//@PutMapping("/employees/{id}")
-//public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable(name = "id") Long id, @RequestBody)EmployeeDto employeeDto) {
-    
-
-//DELETE (@DeleteMapping)
-//http://localhost:8080/api/v1/employees/2
-//@DeleteMapping("/employees/{id}")
-//public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable(name = "id") Long id) {}
-
+export default new EmployeeServices()
 
 //Package.json
 // "dependencies": {
