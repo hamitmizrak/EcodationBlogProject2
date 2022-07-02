@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import EmployeeServices from '../services/EmployeeServices';
 
 export default class ListComponent extends Component {
 
@@ -47,7 +48,7 @@ export default class ListComponent extends Component {
     //DID MOUND: servisteki veriler almak için
     //cdm ==> TAB
     componentDidMount() { 
-        EmployeeServices.getEmployee().then(
+        EmployeeServices.getEmployees().then(
             (response)=>{
                 this.setState({
                     employees:response.data
@@ -64,7 +65,7 @@ export default class ListComponent extends Component {
                 <h1 className="text-center text-uppercase">List</h1>
                 <div className="row">
                     <div className="mx-auto">
-                        <button className="btn btn-primary mb-3">EKLEME </button>
+                        <button onClick={this.addEmployee} className="btn btn-primary mb-3">EKLEME </button>
                     </div>
                     <table className="table table-hover table-striped table-dark">
                         <thead>
@@ -78,20 +79,25 @@ export default class ListComponent extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                            {
+                                this.state.employees.map(
+                                    employee =>
+                                        <tr key={employee.id}>
+                                            <td>{employee.id}</td>
+                                            <td>{employee.employeeName}</td>
+                                            <td>{employee.employeeEmail}</td>
                                 <td>
-                                    <button><i className="fa-solid fa-wrench text-primary"></i></button>
+                                                <button onClick={() => this.editEmployee(employee.id)}><i className="fa-solid fa-wrench text-primary"></i></button>
                                 </td>
                                 <td>
-                                    <button><i className="fa-solid fa-street-view text-warning"></i></button>
+                                                <button onClick={() => this.viewEmployee(employee.id)} ><i className="fa-solid fa-street-view text-warning"></i></button>
                                 </td>
                                 <td>
-                                    <button><i className="fa-solid fa-trash-can text-danger"></i></button>
+                                                <button onClick={() => this.deleteEmployee(employee.id)}><i className="fa-solid fa-trash-can text-danger"></i></button>
                                 </td>
                             </tr>
+                                )
+                            }
                         </tbody>
                     </table>
                 </div>

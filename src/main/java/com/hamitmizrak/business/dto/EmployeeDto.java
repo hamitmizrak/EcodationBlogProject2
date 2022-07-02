@@ -12,7 +12,8 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class EmployeeDto {
-    public Long employeeId;
-    public String employeeName;
-    public String employeeEmail;
+   // public Long employeeId;
+    private Long id;
+    private String employeeName;
+    private String employeeEmail;
 }
