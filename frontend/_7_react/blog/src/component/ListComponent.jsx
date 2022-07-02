@@ -62,7 +62,7 @@ export default class ListComponent extends Component {
         {/* TASARIM */ }
         return (
             <>
-                <h1 className="text-center text-uppercase">List</h1>
+                <h1 className="text-center text-uppercase mt-5">List</h1>
                 <div className="row">
                     <div className="mx-auto">
                         <button onClick={this.addEmployee} className="btn btn-primary mb-3">EKLEME </button>
@@ -87,13 +87,13 @@ export default class ListComponent extends Component {
                                             <td>{employee.employeeName}</td>
                                             <td>{employee.employeeEmail}</td>
                                 <td>
-                                                <button onClick={() => this.editEmployee(employee.id)}><i className="fa-solid fa-wrench text-primary"></i></button>
+                                                <button className="fa-solid fa-wrench text-primary bg-dark" onClick={() => this.editEmployee(employee.id)}></button>
                                 </td>
                                 <td>
-                                                <button onClick={() => this.viewEmployee(employee.id)} ><i className="fa-solid fa-street-view text-warning"></i></button>
+                                                <button className="fa-solid fa-street-view text-warning bg-dark" onClick={() => this.viewEmployee(employee.id)}></button>
                                 </td>
                                 <td>
-                                                <button onClick={() => this.deleteEmployee(employee.id)}><i className="fa-solid fa-trash-can text-danger"></i></button>
+                                                <button className="fa-solid fa-trash-can text-danger bg-dark" onClick={() => this.deleteEmployee(employee.id)}><i className=""></i></button>
                                 </td>
                             </tr>
                                 )
