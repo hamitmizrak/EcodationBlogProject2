@@ -44,7 +44,17 @@ export default class ListComponent extends Component {
         );
     }
 
-    //DID MOUND
+    //DID MOUND: servisteki veriler almak için
+    //cdm ==> TAB
+    componentDidMount() { 
+        EmployeeServices.getEmployee().then(
+            (response)=>{
+                this.setState({
+                    employees:response.data
+                })
+            }
+            );
+     }
 
 
     render() {
