@@ -53,3 +53,8 @@ HeaderComponent.defaultProps={
     aboutme: "Hakkımızda",
     contact: "İletişim",
 }
+
+//required type
+// HeaderComponent.propTypes = {
+//     content: PropTypes.string.isRequired,
+// }

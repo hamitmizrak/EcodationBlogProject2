@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import EmployeeServices from '../services/EmployeeServices';
+import Loading from './Loading'
 
 export default class ListComponent extends Component {
     // constructor
@@ -8,7 +9,8 @@ export default class ListComponent extends Component {
 
         //state ==> durum
         this.state = {
-            employees: [] //javadan gelen api verisini almak için
+            employees: [], //javadan gelen api verisini almak için
+            loading: false //başlangıçta kapat
         }
         //bind
         this.addEmployee = this.addEmployee.bind(this);
@@ -46,19 +48,31 @@ export default class ListComponent extends Component {
     //DID MOUND: servisteki veriler almak için
     //cdm ==> TAB
     componentDidMount() {
-        EmployeeServices.getEmployees().then(
+        this.setState({ loading: true }) //sayfa yüklenene kadar çalışsın
+        setTimeout(() => {
+            EmployeeServices.getEmployees().then(
             (response) => {
                 this.setState({
-                    employees: response.data
+                    employees: response.data,
+                    loading: false
                 })
             }
         );
+        }, 2000)
+
     }
 
     render() {
-        {/* TASARIM */
-        }
+
+        if (this.props.loading) {
+            return <Loading />
+        } else {
+
+
+
+
         return (
+
             <>
                 <h1 className="text-center text-uppercase mt-5">List</h1>
                 <div className="row">
@@ -109,5 +123,6 @@ export default class ListComponent extends Component {
                 {/*row end*/}
             </> //React.Fragment
         ) //return end
+        }
     }//render end
 } // ListComponent end

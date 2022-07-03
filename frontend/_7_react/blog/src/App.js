@@ -19,7 +19,7 @@ function App() {
               <Route path="/employees"  component={ListComponent} ></Route>
               <Route path="/add-employee/:employeeId"  component={CreateComponent} ></Route>
               <Route path="/view-employee/:employeeId"  component={ViewComponent} ></Route>
-              <ListComponent/>
+            <ListComponent />
             </Switch>
           </div>
           <FooterComponent/>
