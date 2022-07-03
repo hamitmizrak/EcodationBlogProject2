@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Router>
-          <HeaderComponent/>
+          <HeaderComponent url="http://www.hamitmizrak.com.tr"/>
           <div className="container">
             <Switch>
               <Route path="/" exact component={ListComponent} ></Route>

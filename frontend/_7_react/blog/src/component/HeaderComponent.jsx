@@ -10,7 +10,7 @@ export default class HeaderComponent extends Component {
                 <header>
                     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
                         <div className="container">
-                            <a className="navbar-brand" href="#">
+                            <a className="navbar-brand" href={this.props.url}>
                             <i className={this.props.icon}></i>
                             </a>
                             <button className="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
