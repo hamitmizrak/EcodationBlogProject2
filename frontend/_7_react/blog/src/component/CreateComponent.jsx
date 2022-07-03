@@ -18,7 +18,8 @@ export default class CreateComponent extends Component {
         this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this); //input müşteri adı
         this.changeEmailHandler = this.changeEmailHandler.bind(this); //input müşteri email
         this.saveOrUpdateEmployee = this.saveOrUpdateEmployee.bind(this);//kaydetme veya ekleme button
-        this.homepage=this.homepage.bind(this); //Anasayfaya gitmesini 
+        this.homepage = this.homepage.bind(this); //Anasayfaya gitmesini 
+
     }
 
     //FUNCTION
@@ -40,16 +41,27 @@ export default class CreateComponent extends Component {
         );
     }
 
+    ////////////////////////////////////////////////
     //cancel
     cancel() {
         this.props.history.push('/employees')
     }
 
     //ana sayfa
-    homepage(){
+    homepage() {
         this.props.history.push('/');
     }
-   
+
+    //Ekleme veya Güncelleme sayfası olacağını belirtir.
+    titleDynamicsSaveOrUpdate() {
+        if (this.state.employeeId === "_add")
+            return <h1 className="display-3 text-center mt-5 ">Müşteri Ekle</h1>
+        else
+            return <h1 className="display-3 text-center mt-5 ">Müşteri Güncelle</h1>
+
+    }
+
+    ////////////////////////////////////////////////
 
     //Kaydetme ve Güncelleme button 
     saveOrUpdateEmployee = (e) => {
@@ -95,15 +107,14 @@ export default class CreateComponent extends Component {
     }
 
 
-
     // tasarım
     render() {
         return (
             <>
-                <h1 className="display-3 text-center mt-5 ">Müşteri Ekle</h1>
+                {this.titleDynamicsSaveOrUpdate()}
                 <div className="mx-auto">
-                        <button onClick={this.homepage} className="btn btn-primary mb-3">Liste</button>
-                    </div>
+                    <button onClick={this.homepage} className="btn btn-primary mb-3">Liste</button>
+                </div>
                 <div className="container">
                     <div className="row">
                         <div className="card-body">

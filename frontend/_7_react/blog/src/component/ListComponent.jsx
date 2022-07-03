@@ -15,6 +15,7 @@ export default class ListComponent extends Component {
         this.editEmployee = this.editEmployee.bind(this);
         this.viewEmployee = this.viewEmployee.bind(this);
         this.deleteEmployee = this.deleteEmployee.bind(this);
+        
     }
 
     //FUNCTION
