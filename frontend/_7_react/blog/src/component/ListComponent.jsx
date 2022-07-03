@@ -88,8 +88,7 @@ export default class ListComponent extends Component {
                                             <td>{employee.employeeEmail}</td>
                                             <td> <button className="fa-solid fa-wrench text-primary bg-dark" onClick={() => this.editEmployee(employee.employeeId)}></button></td>
                                             <td> <button className="fa-solid fa-street-view text-warning bg-dark" onClick={() => this.viewEmployee(employee.employeeId)}></button></td>
-                                            <td> <button className="fa-solid fa-trash-can text-danger bg-dark" onClick={() => this.deleteEmployee(employee.employeeId)}><i className=""></i></button></td>
-                                           
+                                            <td> <button className="fa-solid fa-trash-can text-danger bg-dark" onClick={()=>{if(window.confirm("Silmek İstiyor musunuz?")){this.deleteEmployee(employee.employeeId)}}}><i className=""></i></button></td>
                                        </tr>
                                 )
                             }
