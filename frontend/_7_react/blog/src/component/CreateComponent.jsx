@@ -18,8 +18,7 @@ export default class CreateComponent extends Component {
         this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this); //input müşteri adı
         this.changeEmailHandler = this.changeEmailHandler.bind(this); //input müşteri email
         this.saveOrUpdateEmployee = this.saveOrUpdateEmployee.bind(this);//kaydetme veya ekleme button
-        this.homepage = this.homepage.bind(this); //Anasayfaya gitmesini 
-
+        this.homepage = this.homepage.bind(this); //Anasayfaya gitmesini
     }
 
     //FUNCTION
