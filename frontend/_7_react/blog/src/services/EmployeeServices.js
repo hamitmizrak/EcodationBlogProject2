@@ -8,6 +8,7 @@ const EMLOYEE_API_BASE_URL = "http://localhost:8080/api/v1/employees";
 class EmployeeServices {
 
 //SAVE (@PostMapping)
+//SAVE (@PostMapping)
 // http://localhost:8080/api/v1/employees
 // @PostMapping("/employees")
 // public EmployeeDto createEmployee(@RequestBody EmployeeDto employeeDto) {}
@@ -28,8 +29,8 @@ getEmployees(){
 // http://localhost:8080/api/v1/employees/2
 // @GetMapping("/employees/{id}")
 // public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable(name = "id") Long id) {}
-getEmployeeById(id){
-    return axios.get(EMLOYEE_API_BASE_URL+"/"+id)
+getEmployeeById(employeeId){
+    return axios.get(EMLOYEE_API_BASE_URL+"/"+employeeId)
 }
 
 
@@ -37,8 +38,8 @@ getEmployeeById(id){
 //http://localhost:8080/api/v1/employees/2
 //@PutMapping("/employees/{id}")
 //public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable(name = "id") Long id, @RequestBody)EmployeeDto employeeDto) {}
-updateEmployee(id,employee){
-    return axios.put(EMLOYEE_API_BASE_URL+"/"+id,employee);
+updateEmployee(employeeId,employee){
+    return axios.put(EMLOYEE_API_BASE_URL+"/"+employeeId,employee);
 }
 
 
@@ -46,8 +47,8 @@ updateEmployee(id,employee){
 //http://localhost:8080/api/v1/employees/2
 //@DeleteMapping("/employees/{id}")
 //public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable(name = "id") Long id) {}
-deleteEmployee(id){
-    return axios.delete(EMLOYEE_API_BASE_URL+"/"+id)
+deleteEmployee(employeeId){
+    return axios.delete(EMLOYEE_API_BASE_URL+"/"+employeeId)
 }
 
 }

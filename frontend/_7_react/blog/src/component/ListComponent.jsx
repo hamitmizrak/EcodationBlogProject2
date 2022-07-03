@@ -27,20 +27,20 @@ export default class ListComponent extends Component {
     }
 
     //edit
-    editEmployee(id) {
-        this.props.history.push(`/add-employee/${id}`);
+    editEmployee(employeeId) {
+        this.props.history.push(`/add-employee/${employeeId}`);
     }
 
     //view 
-    viewEmployee(id) {
-        this.props.history.push(`/view-employee/${id}`)
+    viewEmployee(employeeId) {
+        this.props.history.push(`/view-employee/${employeeId}`)
     }
 
     //delete
-    deleteEmployee(id){
-        EmployeeServices.deleteEmployee(id).then(
+    deleteEmployee(employeeId){
+        EmployeeServices.deleteEmployee(employeeId).then(
             response=>{
-                this.setState({ employees:this.state.employees.filter(employee=>employee.id!==id)});
+                    this.setState({ employees:this.state.employees.filter(employee=>employee.employeeId!==employeeId)});
             }
         );
     }
@@ -82,26 +82,21 @@ export default class ListComponent extends Component {
                             {
                                 this.state.employees.map(
                                     employee =>
-                                        <tr key={employee.id}>
-                                            <td>{employee.id}</td>
+                                        <tr key={employee.employeeId}>
+                                            <td>{employee.employeeId}</td>
                                             <td>{employee.employeeName}</td>
                                             <td>{employee.employeeEmail}</td>
-                                <td>
-                                                <button className="fa-solid fa-wrench text-primary bg-dark" onClick={() => this.editEmployee(employee.id)}></button>
-                                </td>
-                                <td>
-                                                <button className="fa-solid fa-street-view text-warning bg-dark" onClick={() => this.viewEmployee(employee.id)}></button>
-                                </td>
-                                <td>
-                                                <button className="fa-solid fa-trash-can text-danger bg-dark" onClick={() => this.deleteEmployee(employee.id)}><i className=""></i></button>
-                                </td>
-                            </tr>
+                                            <td> <button className="fa-solid fa-wrench text-primary bg-dark" onClick={() => this.editEmployee(employee.employeeId)}></button></td>
+                                            <td> <button className="fa-solid fa-street-view text-warning bg-dark" onClick={() => this.viewEmployee(employee.employeeId)}></button></td>
+                                            <td> <button className="fa-solid fa-trash-can text-danger bg-dark" onClick={() => this.deleteEmployee(employee.employeeId)}><i className=""></i></button></td>
+                                           
+                                       </tr>
                                 )
                             }
                         </tbody>
                     </table>
-                </div>
-            </>
-        )
-    }
-}
+                </div> {/*row end*/}
+            </> //React.Fragment
+        ) //return end
+    }//render end
+} // ListComponent end
