@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //sabit bir URL değişkeni 
-const EMLOYEE_API_BASE_URL = "http://localhost:8080/api/v1/employees";
+const EMLOYEE_API_BASE_URL = "/api/v1/employees";
 
 
 //Employee Class

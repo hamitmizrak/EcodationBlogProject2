@@ -56,7 +56,7 @@ export default class CreateComponent extends Component {
             );
             //GUNCELLEME
         } else {
-            EmployeeServices.updateEmployee(employee, this.state.employeeId).then(
+            EmployeeServices.updateEmployee(this.state.employeeId, employee).then(
                 response => {
                     this.props.history.push('/employees')
                 }
