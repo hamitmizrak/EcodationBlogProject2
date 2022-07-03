@@ -25,6 +25,7 @@ export default class CreateComponent extends Component {
                 <h1 className="display-3 text-center mt-5 ">Müşteri Ekle</h1>
                 <div className="container">
                     <div className="row">
+                        <div className="card-body">
                         <div className="form-group">
                             <label >Adı</label>
                             <input type="text" className="form-control" placeholder='Müşteri Adı' />
@@ -38,6 +39,7 @@ export default class CreateComponent extends Component {
                             <button type="reset" className=" btn btn-danger me-3" placeholder='Müşteri Email'> Temizle </button>
                             <button type="submit" className=" btn btn-primary" placeholder='Müşteri Email'> Gönder </button>
                         </div>
+                    </div>
                     </div>
                 </div>
             </>
