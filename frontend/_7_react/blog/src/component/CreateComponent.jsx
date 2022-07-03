@@ -18,6 +18,7 @@ export default class CreateComponent extends Component {
         this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this); //input müşteri adı
         this.changeEmailHandler = this.changeEmailHandler.bind(this); //input müşteri email
         this.saveOrUpdateEmployee = this.saveOrUpdateEmployee.bind(this);//kaydetme veya ekleme button
+        this.homepage=this.homepage.bind(this); //Anasayfaya gitmesini 
     }
 
     //FUNCTION
@@ -39,7 +40,18 @@ export default class CreateComponent extends Component {
         );
     }
 
-    //button saveOrUpdateEmployee
+    //cancel
+    cancel() {
+        this.props.history.push('/employees')
+    }
+
+    //ana sayfa
+    homepage(){
+        this.props.history.push('/');
+    }
+   
+
+    //Kaydetme ve Güncelleme button 
     saveOrUpdateEmployee = (e) => {
         e.preventDefault();
         let employee = {
@@ -62,8 +74,6 @@ export default class CreateComponent extends Component {
                 }
             )
         }
-
-
     }
 
     //CDM: Component Did Mount
@@ -91,6 +101,9 @@ export default class CreateComponent extends Component {
         return (
             <>
                 <h1 className="display-3 text-center mt-5 ">Müşteri Ekle</h1>
+                <div className="mx-auto">
+                        <button onClick={this.homepage} className="btn btn-primary mb-3">Liste</button>
+                    </div>
                 <div className="container">
                     <div className="row">
                         <div className="card-body">
@@ -107,7 +120,8 @@ export default class CreateComponent extends Component {
                                 />
                             </div>
                             <div className="mt-3 mb-3 d-inline">
-                                <button type="reset" className=" btn btn-danger me-3" placeholder='Müşteri Email'> Temizle </button>
+                                <button onClick={this.cancel.bind(this)} className=" btn btn-danger me-3" placeholder='Müşteri Email'> Temizle </button>
+
                                 <button onClick={this.saveOrUpdateEmployee} type="submit" className=" btn btn-primary" placeholder='Müşteri Email'> Gönder </button>
                             </div>
                         </div>
