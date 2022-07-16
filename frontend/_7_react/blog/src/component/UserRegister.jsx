@@ -17,7 +17,8 @@ export default class UserRegister extends Component {
             userName: null,
             userSurname: null,
             userPassword: null,
-            readed: false
+            readed: false,
+            passiveButtonSubmit: false
         }
     }
 
@@ -70,8 +71,20 @@ export default class UserRegister extends Component {
             userSurname,
             userPassword,
         }
-
-        axios.post(URL, BODY);
+        // normal sürekli aynı anda kayır edebiliyor
+        //axios.post(URL, BODY)
+        //aynı anda butona birden fazla basılmasına izin verilmesin
+        //then ==> eğer post başarılıysa
+        this.setState({
+            passiveButtonSubmit: true
+        })
+        axios
+            .post(URL, BODY)
+            .then(response => {
+                this.setState({
+                    passiveButtonSubmit: false
+                })
+            });
     }
 
     //render:gün yüzene çıkarmak 
@@ -99,7 +112,14 @@ export default class UserRegister extends Component {
 
                             <div className="form-group mb-3">
                                 <input type="checkbox" onChange={this.checkOnClickRead} />Read Me <br />
-                                <button disabled={!this.state.readed} onClick={this.onClickUserSubmit} type="submit" className="btn btn-primary" >Submit</button>
+
+
+                                {/*
+                                readme
+                                 <button disabled={!this.state.readed} onClick={this.onClickUserSubmit} type="submit" className="btn btn-primary" >Submit</button>
+                                 */}
+
+                                <button disabled={this.state.passiveButtonSubmit} onClick={this.onClickUserSubmit} type="submit" className="btn btn-primary" >Submit</button>
                             </div>
                         </form>
                     </div>
