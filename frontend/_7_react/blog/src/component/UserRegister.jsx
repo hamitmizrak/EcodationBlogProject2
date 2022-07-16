@@ -16,18 +16,24 @@ export default class UserRegister extends Component {
         }
     }
 
-    //ReadMe
+    //ReadMe checkbox
     checkOnClickRead = event => {
         this.state.readed = event.target.checked;
         console.log(this.state.readed)
         this.setState({ readed: event.target.checked })
     }
 
-    //input
+    //input gelen veriler
     onChangeClick=event =>{
-        //event.target.value;
-        console.log(event.target.value);
-        this.setState({ userName:event.target.value})
+        //1.YOL
+        //const name=event.target.name;
+        //const value=event.target.value;
+
+        //2.YOL (destructing)
+        const {name,value}=event.target;
+        this.setState({
+           [name]:value
+        })
     }
 
     //submit button
