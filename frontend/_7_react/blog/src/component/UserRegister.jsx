@@ -125,6 +125,9 @@ export default class UserRegister extends Component {
                                 {/* spinner */}
                                 <button disabled={this.state.passiveButtonSubmit} onClick={this.onClickUserSubmit} type="submit" className="btn btn-primary" >
                                     {/* conditional render */}
+                                     {/* 1.YOL: SPINNER:LOADING: ternary 
+                                    {this.state.passiveButtonSubmit ? <span class="spinner-border spinner-border-sm me-3"></span>:' '} */}
+                                    {/* 2.YOL:SPINNER:LOADING */}
                                 {this.state.passiveButtonSubmit&& <span class="spinner-border spinner-border-sm me-3"></span>}
                                     Submit</button>
                             </div>
