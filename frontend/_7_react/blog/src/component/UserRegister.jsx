@@ -42,8 +42,10 @@ export default class UserRegister extends Component {
         })
     }
 
-    //submit button
-    onClickUserSubmit = (event) => {
+    //javascript single thread yani senkron çalışır ancak biz asenkron(aynı anda birden iş)
+    //submit button: promise function 
+    //async await
+    onClickUserSubmit = async (event) => {
         //browserda tetiklenme olmadan burası çalışsın
         event.preventDefault();
 
@@ -79,15 +81,24 @@ export default class UserRegister extends Component {
         this.setState({
             passiveButtonSubmit: true
         })
-        axios.post(URL, BODY).then(response => {
-                this.setState({
-                    passiveButtonSubmit: false
-                })
-            }).catch(error=>{
-                this.setState({
-                    passiveButtonSubmit: false
-                })
-            });
+        // axios.post(URL, BODY).then(response => {
+        //         this.setState({
+        //             passiveButtonSubmit: false
+        //         })
+        //     }).catch(error=>{
+        //         this.setState({
+        //             passiveButtonSubmit: false
+        //         })
+        //     });
+
+        try {
+            const response = await axios.post(URL, BODY);
+        } catch (error) {
+            console.log(error)
+        }
+        this.setState({
+            passiveButtonSubmit: false
+        })
     }
 
     //render:gün yüzene çıkarmak 
@@ -128,7 +139,7 @@ export default class UserRegister extends Component {
                                      {/* 1.YOL: SPINNER:LOADING: ternary 
                                     {this.state.passiveButtonSubmit ? <span class="spinner-border spinner-border-sm me-3"></span>:' '} */}
                                     {/* 2.YOL:SPINNER:LOADING */}
-                                {this.state.passiveButtonSubmit&& <span class="spinner-border spinner-border-sm me-3"></span>}
+                                    {this.state.passiveButtonSubmit && <span className="spinner-border spinner-border-sm me-3"></span>}
                                     Submit</button>
                             </div>
                         </form>
