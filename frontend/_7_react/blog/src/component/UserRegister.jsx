@@ -1,4 +1,6 @@
+//     class                      dependency
 import React, { Component } from 'react';
+import axios from 'axios';
 
 //statefull: class component state kullanıyorsak 
 //stateless: function component
@@ -27,15 +29,15 @@ export default class UserRegister extends Component {
     }
 
     //input gelen verileri almak ve setState set etmek
-    onChangeClick=event =>{
+    onChangeClick = event => {
         //1.YOL
         //const name=event.target.name;
         //const value=event.target.value;
 
         //2.YOL (destructing)
-        const {name,value}=event.target;
+        const { name, value } = event.target;
         this.setState({
-           [name]:value
+            [name]: value
         })
     }
 
@@ -43,6 +45,33 @@ export default class UserRegister extends Component {
     onClickUserSubmit = (event) => {
         //browserda tetiklenme olmadan burası çalışsın
         event.preventDefault();
+
+        //axios.post(URL,body);
+        const URL = "/api/v1/users";
+
+        //1.YOL
+        // const BODY={
+        //     userName:this.state.userName,
+        //     userSurname:this.state.userSurname,
+        //     userPassword:this.state.userPassword,
+        // }
+
+        //2.YOL
+        const { userName, userSurname, userPassword } = this.state
+        // const BODY = {
+        //     userName: userName,
+        //     userSurname: userSurname,
+        //     userPassword: userPassword,
+        // }
+
+        //3.YOL
+        const BODY = {
+            userName,
+            userSurname,
+            userPassword,
+        }
+
+        axios.post(URL, BODY);
     }
 
     //render:gün yüzene çıkarmak 
