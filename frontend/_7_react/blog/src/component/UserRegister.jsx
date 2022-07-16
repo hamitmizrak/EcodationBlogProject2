@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 //statefull: class component state kullanıyorsak 
 //stateless: function component
+// npm i bootstrap
+// npm i node-sass
+// npm i axios
 export default class UserRegister extends Component {
     //bu class oluşturulduğunda ilk çalışacak data
     constructor(props) {
@@ -23,7 +26,7 @@ export default class UserRegister extends Component {
         this.setState({ readed: event.target.checked })
     }
 
-    //input gelen veriler
+    //input gelen verileri almak ve setState set etmek
     onChangeClick=event =>{
         //1.YOL
         //const name=event.target.name;
