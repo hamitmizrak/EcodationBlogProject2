@@ -71,16 +71,19 @@ export default class UserRegister extends Component {
             userSurname,
             userPassword,
         }
-        // normal sürekli aynı anda kayır edebiliyor
+        // normal sürekli aynı anda submit butona kayıt edebiliyor ama doğru bir davranış değil
         //axios.post(URL, BODY)
+
         //aynı anda butona birden fazla basılmasına izin verilmesin
         //then ==> eğer post başarılıysa
         this.setState({
             passiveButtonSubmit: true
         })
-        axios
-            .post(URL, BODY)
-            .then(response => {
+        axios.post(URL, BODY).then(response => {
+                this.setState({
+                    passiveButtonSubmit: false
+                })
+            }).catch(error=>{
                 this.setState({
                     passiveButtonSubmit: false
                 })
@@ -111,15 +114,19 @@ export default class UserRegister extends Component {
                             </div>
 
                             <div className="form-group mb-3">
-                                <input type="checkbox" onChange={this.checkOnClickRead} />Read Me <br />
-
-
                                 {/*
-                                readme
+                                readme için
+                                <input type="checkbox" onChange={this.checkOnClickRead} />Read Me <br />
                                  <button disabled={!this.state.readed} onClick={this.onClickUserSubmit} type="submit" className="btn btn-primary" >Submit</button>
                                  */}
 
-                                <button disabled={this.state.passiveButtonSubmit} onClick={this.onClickUserSubmit} type="submit" className="btn btn-primary" >Submit</button>
+                                {/* <button disabled={this.state.passiveButtonSubmit} onClick={this.onClickUserSubmit} type="submit" className="btn btn-primary" >Submit</button> */}
+
+                                {/* spinner */}
+                                <button disabled={this.state.passiveButtonSubmit} onClick={this.onClickUserSubmit} type="submit" className="btn btn-primary" >
+                                    {/* conditional render */}
+                                {this.state.passiveButtonSubmit&& <span class="spinner-border spinner-border-sm me-3"></span>}
+                                    Submit</button>
                             </div>
                         </form>
                     </div>
