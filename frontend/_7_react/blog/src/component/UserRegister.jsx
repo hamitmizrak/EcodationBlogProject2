@@ -51,17 +51,17 @@ export default class UserRegister extends Component {
 
                             <div className="form-group mb-3">
                                 <label htmlFor="userSurname">Soyadı</label>
-                                <input name="userSurname" id="userSurname" type="text" className="form-control" placeholder="userSurname ..." />
+                                <input onChange={this.onChangeClick} name="userSurname" id="userSurname" type="text" className="form-control" placeholder="userSurname ..." />
                             </div>
 
                             <div className="form-group mb-3">
                                 <label htmlFor="userPassword">Password</label>
-                                <input name="userPassword" id="userPassword" type="text" className="form-control" placeholder="user Password ..." />
+                                <input onChange={this.onChangeClick} name="userPassword" id="userPassword" type="text" className="form-control" placeholder="user Password ..." />
                             </div>
 
                             <div className="form-group mb-3">
                                 <input type="checkbox" onChange={this.checkOnClickRead} />Read Me <br />
-                                <button onClick={this.onClickUserSubmit} type="submit" className="btn btn-primary" >Submit</button>
+                                <button disabled={!this.state.readed} onClick={this.onClickUserSubmit} type="submit" className="btn btn-primary" >Submit</button>
                             </div>
                         </form>
                     </div>
