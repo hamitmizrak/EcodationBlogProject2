@@ -124,17 +124,26 @@ export default class UserRegister extends Component {
                         <form>
                             <div className="form-group mb-3">
                                 <label htmlFor="userName">Adı</label>
-                                <input onChange={this.onChangeClick} name="userName" id="userName" type="text" className="form-control" placeholder="userName ..." />
+                                <input onChange={this.onChangeClick} name="userName" autoFocus={true} id="userName" type="text" className="form-control  is-invalid" placeholder="userName ..." />
+                                <div className="invalid-feedback">
+                                    Please choose a username.
+                                </div>
                             </div>
 
                             <div className="form-group mb-3">
                                 <label htmlFor="userSurname">Soyadı</label>
-                                <input onChange={this.onChangeClick} name="userSurname" id="userSurname" type="text" className="form-control" placeholder="userSurname ..." />
+                                <input onChange={this.onChangeClick} name="userSurname" id="userSurname" type="text" className="form-control   is-invalid" placeholder="userSurname ..." />
+                                <div className="invalid-feedback">
+                                    Please choose a userSurname.
+                                </div>
                             </div>
 
                             <div className="form-group mb-3">
                                 <label htmlFor="userPassword">Password</label>
-                                <input onChange={this.onChangeClick} name="userPassword" id="userPassword" type="text" className="form-control" placeholder="user Password ..." />
+                                <input onChange={this.onChangeClick} name="userPassword" id="userPassword" type="text" className="form-control   is-invalid" placeholder="user Password ..." />
+                                <div className="invalid-feedback">
+                                    Please choose a Password.
+                                </div>
                             </div>
 
                             <div className="form-group mb-3">
