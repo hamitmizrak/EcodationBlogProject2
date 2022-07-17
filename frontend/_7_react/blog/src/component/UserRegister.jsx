@@ -154,7 +154,6 @@ export default class UserRegister extends Component {
                             <DataInput title="Şifre Tekrarı" name="userRePassword" type="password" onChangeClick={this.onChangeClick} error={userRePassword} placeHolder="şifre tekrarını giriniz" />
 
 
-
                             <div className="form-group mb-3">
                                 {/*
                                 readme için
