@@ -17,8 +17,10 @@ export default class UserRegister extends Component {
             userName: null,
             userSurname: null,
             userPassword: null,
+            userRePassword: null,
             readed: false,
-            passiveButtonSubmit: false
+            passiveButtonSubmit: false,
+            apiError: {}
         }
     }
 
@@ -37,8 +39,14 @@ export default class UserRegister extends Component {
 
         //2.YOL (destructing)
         const { name, value } = event.target;
+        const cloneObject = this.state.apiError;
+        cloneObject[name] = undefined;
+
+        //PASSWORD -REPASSWORD
+
         this.setState({
-            [name]: value
+            [name]: value,
+            cloneObject
         })
     }
 
@@ -95,6 +103,11 @@ export default class UserRegister extends Component {
             const response = await axios.post(URL, BODY);
         } catch (error) {
             console.log(error)
+            if (error.response.data.validationData) {
+                this.setState({
+                    apiError: error.response.data.validationData
+                })
+            }
         }
         this.setState({
             passiveButtonSubmit: false
@@ -122,6 +135,11 @@ export default class UserRegister extends Component {
                             <div className="form-group mb-3">
                                 <label htmlFor="userPassword">Password</label>
                                 <input onChange={this.onChangeClick} name="userPassword" id="userPassword" type="text" className="form-control" placeholder="user Password ..." />
+                            </div>
+
+                            <div className="form-group mb-3">
+                                <label htmlFor="userRePassword">userRePassword</label>
+                                <input onChange={this.onChangeClick} name="userRePassword" id="userRePassword" type="text" className="form-control" placeholder="userRePassword ..." />
                             </div>
 
                             <div className="form-group mb-3">
