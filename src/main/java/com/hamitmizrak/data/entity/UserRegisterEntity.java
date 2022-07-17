@@ -15,7 +15,7 @@ public class UserRegisterEntity extends BaseEntity {
     @Column(name = "user_name")
     private String userName;
 
-    @Column(name = "user_surame")
+    @Column(name = "user_surname")
     private String userSurname;
 
     @Column(name = "user_password")
