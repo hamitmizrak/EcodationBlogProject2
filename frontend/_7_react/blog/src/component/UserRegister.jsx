@@ -1,6 +1,7 @@
 //     class                      dependency
 import React, { Component } from 'react';
 import axios from 'axios';
+import DataInput from './DataInput';
 
 //statefull: class component state kullanıyorsak 
 //stateless: function component
@@ -37,12 +38,23 @@ export default class UserRegister extends Component {
         //const name=event.target.name;
         //const value=event.target.value;
 
+        //undefined: tanımsız demektir.
+
         //2.YOL (destructing)
         const { name, value } = event.target;
         const cloneObject = this.state.apiError;
         cloneObject[name] = undefined;
 
         //PASSWORD -REPASSWORD
+        if (name === "userPassword" || name === "userRePassword") {
+            if (name === "userPassword" && value !== this.state.userRePassword) {
+                cloneObject.userRePassword = "Şifreler birbirine uymuyor"
+            } else if (name === "userRePassword" && value !== this.state.userPassword) {
+                cloneObject.userRePassword = "Şifreler birbirine uymuyor"
+            } else {
+                cloneObject.userRePassword = undefined;
+            }
+        }
 
         this.setState({
             [name]: value,
@@ -116,40 +128,32 @@ export default class UserRegister extends Component {
 
     //render:gün yüzene çıkarmak 
     render() {
+        //
+        const { apiError, passiveButtonSubmit } = this.state;
+        const { userName, userSurname, userPassword, userRePassword } = apiError;
         return (
             <>
                 <h1 className="text-center mt-4 mb-3 text-center text-warning text-display-3">Login Register</h1>
                 <div className="container">
                     <div className="row">
                         <form>
-                            <div className="form-group mb-3">
+                            {/* <div className="form-group mb-3">
                                 <label htmlFor="userName">Adı</label>
-                                <input onChange={this.onChangeClick} name="userName" autoFocus={true} id="userName" type="text" className="form-control  is-invalid" placeholder="userName ..." />
+                                <input onChange={this.onChangeClick} name="userName" autoFocus={true} id="userName" type="text" className="form-control  is-invalid" placeholder="kullanıcı adı " />
                                 <div className="invalid-feedback">
-                                    Please choose a username.
+                                    {userName}
                                 </div>
-                            </div>
+                            </div> */}
 
-                            <div className="form-group mb-3">
-                                <label htmlFor="userSurname">Soyadı</label>
-                                <input onChange={this.onChangeClick} name="userSurname" id="userSurname" type="text" className="form-control   is-invalid" placeholder="userSurname ..." />
-                                <div className="invalid-feedback">
-                                    Please choose a userSurname.
-                                </div>
-                            </div>
+                            <DataInput title="Adı" name="userName" type="text" onChangeClick={this.onChangeClick} error={userName} placeHolder="kullanıcı adı giriniz" />
 
-                            <div className="form-group mb-3">
-                                <label htmlFor="userPassword">Password</label>
-                                <input onChange={this.onChangeClick} name="userPassword" id="userPassword" type="text" className="form-control   is-invalid" placeholder="user Password ..." />
-                                <div className="invalid-feedback">
-                                    Please choose a Password.
-                                </div>
-                            </div>
+                            <DataInput title="Soyadı" name="userSurname" type="text" onChangeClick={this.onChangeClick} error={userSurname} placeHolder="kullanıcı soyadını giriniz" />
 
-                            <div className="form-group mb-3">
-                                <label htmlFor="userRePassword">userRePassword</label>
-                                <input onChange={this.onChangeClick} name="userRePassword" id="userRePassword" type="text" className="form-control" placeholder="userRePassword ..." />
-                            </div>
+                            <DataInput title="Password" name="userPassword" type="password" onChangeClick={this.onChangeClick} error={userPassword} placeHolder="kullanıcı şifresini giriniz" />
+
+                            <DataInput title="Şifre Tekrarı" name="userRePassword" type="password" onChangeClick={this.onChangeClick} error={userRePassword} placeHolder="şifre tekrarını giriniz" />
+
+
 
                             <div className="form-group mb-3">
                                 {/*
@@ -161,12 +165,12 @@ export default class UserRegister extends Component {
                                 {/* <button disabled={this.state.passiveButtonSubmit} onClick={this.onClickUserSubmit} type="submit" className="btn btn-primary" >Submit</button> */}
 
                                 {/* spinner */}
-                                <button disabled={this.state.passiveButtonSubmit} onClick={this.onClickUserSubmit} type="submit" className="btn btn-primary" >
+                                <button disabled={passiveButtonSubmit || userRePassword !== undefined} onClick={this.onClickUserSubmit} type="submit" className="btn btn-primary" >
                                     {/* conditional render */}
-                                     {/* 1.YOL: SPINNER:LOADING: ternary 
+                                    {/* 1.YOL: SPINNER:LOADING: ternary
                                     {this.state.passiveButtonSubmit ? <span class="spinner-border spinner-border-sm me-3"></span>:' '} */}
                                     {/* 2.YOL:SPINNER:LOADING */}
-                                    {this.state.passiveButtonSubmit && <span className="spinner-border spinner-border-sm me-3"></span>}
+                                    {passiveButtonSubmit && <span className="spinner-border spinner-border-sm me-3"></span>}
                                     Submit</button>
                             </div>
                         </form>
