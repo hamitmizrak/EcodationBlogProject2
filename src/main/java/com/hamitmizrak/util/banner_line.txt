@@ -1,0 +1,4 @@
+https://devops.datenkollektiv.de/banner.txt/index.html
+
+https://springhow.com/spring-boot-banner-generator/
+
